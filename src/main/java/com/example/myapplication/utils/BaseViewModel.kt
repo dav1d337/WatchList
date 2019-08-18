@@ -1,13 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.utils
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.internal.schedulers.SchedulerPoolFactory
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 

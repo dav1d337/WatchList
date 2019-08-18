@@ -17,11 +17,11 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class NetModule{
+class NetModule(val baseUrl: String){
 
     @Provides
-    @Singleton
-    fun provideRetrofit(@Named("baseUrl") baseUrl: String, gson: Gson, okHttpClient: OkHttpClient): Retrofit {
+    @ApplicationScope
+    internal fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -31,7 +31,7 @@ class NetModule{
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideOkHttpClient(cache: Cache): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         val level = getInterceptorLevel()
@@ -52,15 +52,17 @@ class NetModule{
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideOkHttpCache(context: Context): Cache {
         val cacheSize = 10 * 1024 * 1024 // 10 MB
         return Cache(context.cacheDir, cacheSize.toLong())
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideGson(): Gson {
         return GsonBuilder().create()
     }
+
+
 }

@@ -8,20 +8,21 @@ import com.example.myapplication.di.NetModule
 
 
 class App : Application(){
-    lateinit var appComponent: AppComponent
+
+
+    lateinit var applicationComponent: AppComponent
         private set
-
-
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent
+        applicationComponent = DaggerAppComponent
             .builder()
             .applicationModule(ApplicationModule(this))
-            .netModule(NetModule())
+            .netModule(NetModule("http://api.themoviedb.org/3/"))
             .build()
 
-        appComponent.inject(this)
+
+        applicationComponent.inject(this)
     }
 
 
