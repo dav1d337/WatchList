@@ -13,35 +13,32 @@ data class Movie(
 
     @SerializedName("id")
     @Expose
-    var id: Int?,
+    var id: Long,
 
     @SerializedName("title")
     @Expose
-    var title: String?,
+    var title: String,
 
     @SerializedName("vote_average")
     @Expose
-    var voteAverage: String?,
-
-    @SerializedName("genre_ids")
-    @Expose
-    var genreIds: List<Int>?,
+    var voteAverage: String,
 
     @Expose(serialize = false)
-    var genres: String?,
+    var genres: String,
 
     @SerializedName("backdrop_path")
     @Expose
-    var backdropPath: String?,
+    var backdropPath: String,
 
     @SerializedName("release_date")
     @Expose
-    var releaseDate: String?,
+    var releaseDate: String,
 
     @SerializedName("overview")
     @Expose
-    var overview: String?,
+    var overview: String,
 
     @SerializedName("poster_path")
     @Expose
-    var posterPath: String? )
+    var posterPath: String
+)

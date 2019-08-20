@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
 interface MovieApi {
-    @GET("movie/popular")
+    @GET("discover/movie?sort_by=popularity.desc")
     fun getNowPlayingMovies(): Flowable<MoviesResponse>
 }

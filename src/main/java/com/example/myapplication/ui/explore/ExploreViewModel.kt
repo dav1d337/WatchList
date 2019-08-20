@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.explore
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.example.myapplication.utils.BaseViewModel
 import com.example.myapplication.utils.SchedulerFacade
 import javax.inject.Inject
 
-class MainViewModel
+class ExploreViewModel
 @Inject
 constructor(
     schedulerFacade: SchedulerFacade,
